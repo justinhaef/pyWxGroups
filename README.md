@@ -6,7 +6,7 @@ This demo application was created to show how a company could leverage the Group
 
 ## How to use
 
-You'll need to enter the application at app.py.  `python app.py` would be how you'd kick it off.  It will then go through the OAuth exchange.  Your integration will need to have both `identity:groups_rw` and `spark-admin:people_read` scopes.  
+You'll need to enter the application at app.py.  `python app.py` would be how you'd kick it off.  It will then go through the OAuth exchange.  Your integration will need to have both `identity:groups_rw` and `spark-admin:people_read` scopes.  You'll need to put in your `APP_CLIENTID=` and `APP_SECRETID=` in the `.env-template` file.  Also, rename `.env-template` to just `.env`.  
 
 The application will then create a group, search out the user IDs of the user's email addresses you have listed in `app.py` and finally add those users to the newly created group. 
 
