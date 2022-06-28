@@ -5,15 +5,14 @@ log = logging.getLogger(__name__)
 
 class Webex_Groups():
 
-    def __init__(self, access_token: str, refresh_token: str):
+    def __init__(self, access_token: str):
         self.access_token = access_token
-        self.refresh_token = refresh_token
         self.base_url = 'https://webexapis.com/v1'
 
-    def _create_group(self):
+    def _create_group(self, group: str):
         url = f'{self.base_url}/groups'
         data = {
-            "displayName": "Webex Network Recording",
+            "displayName": group,
             "description": "Test Users with Permissions to Network Record",
         }
         response = requests.post(url=url, headers={'Authorization': f'Bearer {self.access_token}'}, json=data)
@@ -55,9 +54,9 @@ class Webex_Groups():
         else:
             log.warning('Access Token was Expired')
 
-    def creation(self):
+    def creation(self, group: str):
         # Create Group
-        created_id = self._create_group()
+        created_id = self._create_group(group=group)
         return created_id
 
     def user_addition(self, group_id: str, user_id: str):

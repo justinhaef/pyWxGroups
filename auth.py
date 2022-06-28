@@ -19,6 +19,7 @@ class Auth():
         self.scope = [
             "identity:groups_rw",
             "spark-admin:people_read",
+            "spark-admin:people_write",
             ]
 
     def kickoff(self):
